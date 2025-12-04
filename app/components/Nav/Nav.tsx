@@ -6,6 +6,10 @@ const Nav = () => {
 
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+    const handleShowMobileMenu = () => {
+        setShowMobileMenu(!showMobileMenu)
+    }
+
     return (
         <nav className="flex justify-between items-center p-4 bg-black text-white border-b">
             <ul className="md:block hidden">
@@ -14,10 +18,10 @@ const Nav = () => {
             <ul className="md:block hidden">
                 <li><Link href="/">Home</Link></li>
             </ul>
-            <div className="md:hidden block">
+            <div className="md:hidden block z-20">
                 <button
                     className="md:hidden flex flex-col justify-around w-6 h-6 z-20 cursor-pointer"
-                    onClick={() => setShowMobileMenu(!showMobileMenu)}
+                    onClick={handleShowMobileMenu}
                     aria-label={showMobileMenu ? "Close menu" : "Open menu"}
                     aria-expanded={showMobileMenu}
                 >
@@ -28,6 +32,12 @@ const Nav = () => {
                     <span className={`block w-full h-0.5 bg-white transition-transform duration-300 ease-in-out ${showMobileMenu ? '-rotate-50 -translate-y-[9px]' : ''
                         }`}></span>
                 </button>
+            </div>
+            <div className={`fixed top-0 left-0 h-full w-full max-w-xs bg-black/90 backdrop-blur-sm p-8 transition-transform duration-300 ease-in-out z-10 ${showMobileMenu ? 'translate-x-0' : '-translate-x-full'}`}>
+                <ul className="flex flex-col items-center justify-center h-full gap-y-8">
+                    <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-3xl">Home</span></Link></li>
+                    {/* Add other mobile links here */}
+                </ul>
             </div>
         </nav>
     )
