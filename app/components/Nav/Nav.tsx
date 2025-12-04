@@ -35,8 +35,8 @@ const Nav = () => {
             </div>
             <div className={`fixed top-0 left-0 h-full w-full max-w-xs bg-black/90 backdrop-blur-sm p-8 transition-transform duration-300 ease-in-out z-10 ${showMobileMenu ? 'translate-x-0' : '-translate-x-full'}`}>
                 <ul className="flex flex-col items-center justify-center h-full gap-y-8">
-                    <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-3xl">Home</span></Link></li>
-                    {/* Add other mobile links here */}
+                    <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-3xl">Marco Valeri</span></Link></li>
+                    <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-2xl">Home</span></Link></li>
                 </ul>
             </div>
         </nav>
