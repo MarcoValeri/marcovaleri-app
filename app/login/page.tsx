@@ -1,28 +1,24 @@
 'use client';
 
-import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css'
+import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function LoginPage() {
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
+  const router = useRouter();
+
+  // If the user is already logged in, send them to Admin immediately
+  useEffect(() => {
+    if (authStatus === 'authenticated') {
+      router.push('/admin');
+    }
+  }, [authStatus, router]);
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
-      <Authenticator>
-        {({ signOut, user }) => (
-          <main style={{ padding: '20px', textAlign: 'center' }}>
-            <h1>Hello, Admin!</h1>
-            <p>You are logged in as: <b>{user?.signInDetails?.loginId}</b></p>
-            
-            {/* We will add the "Create Post" form here later */}
-            
-            <button 
-              onClick={signOut} 
-              style={{ padding: '10px', marginTop: '20px', cursor: 'pointer' }}
-            >
-              Sign Out
-            </button>
-          </main>
-        )}
-      </Authenticator>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
+      <Authenticator />
     </div>
   );
 }
