@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Merriweather, Tangerine } from "next/font/google";
 import ConfigureAmplify from "./components/ConfigureAmplify/ConfigureAmplify";
+import Providers from "./providers";
+import '@aws-amplify/ui-react/styles.css';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,7 +42,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${merriweather.className} ${tangerine.variable} antialiased`}
       >
         <ConfigureAmplify />
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
