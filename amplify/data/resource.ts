@@ -6,7 +6,12 @@ import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 const schema = a.schema({
   Article: a.model({
     title: a.string(),
-    content: a.string(),
+    description: a.string(),
+    content: a.json(),
+    coverImage: a.string(),
+    publishedAt: a.datetime(),
+    category: a.string(),
+    tag: a.string().array(),
   })
   .authorization(allow => [
     // 1. Guests (public) can READ articles
