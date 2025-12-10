@@ -11,7 +11,7 @@ const schema = a.schema({
     coverImage: a.string(),
     publishedAt: a.datetime(),
     category: a.string(),
-    tag: a.string().array(),
+    tags: a.string().array(),
   })
   .authorization(allow => [
     // 1. Guests (public) can READ articles
