@@ -7,8 +7,6 @@ import type { Schema } from '@/amplify/data/resource';
 import { useRouter } from 'next/navigation';
 
 // 1. Dynamic Import is CRITICAL 
-// Editor.js relies on the "window" object, which doesn't exist on the server.
-// "ssr: false" forces Next.js to load this only in the browser.
 const Editor = dynamic(() => import('../components/Editor'), { ssr: false });
 
 const client = generateClient<Schema>();
