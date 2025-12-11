@@ -20,6 +20,21 @@ const schema = a.schema({
     // 2. Admins can do EVERYTHING (create, update, delete)
     allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
   ]),
+
+  Media: a.model({
+    path: a.string().required(),      // e.g. "posts/london-shard.jpg"
+    title: a.string(),                // e.g. "My London Trip"
+    altText: a.string(),              // Accessibility text
+    caption: a.string(),
+    description: a.string(),          
+    identityId: a.string(),           
+  })
+  .authorization(allow => [
+    // Public can READ (so blog visitors can see captions)
+    allow.publicApiKey().to(['read']),
+    // Admins have full control
+    allow.group('ADMINS').to(['read', 'create', 'update', 'delete']),
+  ])
 });
 
 // This helps your frontend know the types (TypeScript)

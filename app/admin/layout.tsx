@@ -20,6 +20,7 @@ export default function AdminLayout({
             <nav style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <a href="/admin">Dashboard</a>
               <a href="/admin/create-post">Create Article</a>
+              <a href="/admin/media">Media</a>
               <a href="/" target="_blank">View Live Site ↗</a>
             </nav>
 
