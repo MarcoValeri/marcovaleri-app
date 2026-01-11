@@ -1,8 +1,11 @@
-export default function AdminDashboard() {
+import AdminLayout from "./components/AdminLayout/AdminLayout";
 
-  return (
-    <div>
-      <h2>Hello Admin</h2>
-    </div>
-  );
+const Admin = () => {
+    return (
+        <AdminLayout>
+            <h2>Admin</h2>
+        </AdminLayout>
+    )
 }
+
+export default Admin;
