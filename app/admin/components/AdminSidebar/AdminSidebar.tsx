@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchAuthSession } from "aws-amplify/auth";
-import { MdDashboard, MdMenu, MdClose, MdArrowOutward, MdCategory, MdArticle } from "react-icons/md";
-import { HiUsers } from "react-icons/hi";
-import { FaImages, FaTags, FaQuestionCircle } from "react-icons/fa";
+import { MdDashboard, MdMenu, MdClose, MdArrowOutward, MdArticle, MdCategory, MdTag } from "react-icons/md";
 import AdminMenu from "../AdminMenu/AdminMenu.tsx";
 import AdminLink from "../AdminLink/AdminLink.tsx";
 
@@ -62,11 +60,34 @@ const AdminSidebar = () => {
                             icon={MdDashboard}
                         />
                     </div>
-                    <AdminLink
-                        pathName="/"
-                        label="View Site"
-                        icon={MdArrowOutward}
-                    />
+                    <div className="mb-5">
+                        <AdminMenu
+                            pathName="/admin/articles"
+                            label="Articles"
+                            icon={MdArticle}
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <AdminMenu
+                            pathName="/admin/categories"
+                            label="Categories"
+                            icon={MdCategory}
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <AdminMenu
+                            pathName="/admin/tags"
+                            label="Tags"
+                            icon={MdTag}
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <AdminLink
+                            pathName="/"
+                            label="View Site"
+                            icon={MdArrowOutward}
+                        />
+                    </div>
                 </div>
             </div>
         </>
