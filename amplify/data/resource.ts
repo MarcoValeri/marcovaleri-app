@@ -1,53 +1,82 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
-/* * This is your Database Schema.
- * We define an "Article" model that only ADMINS can write to.
- */
 const schema = a.schema({
   Article: a.model({
     title: a.string(),
     description: a.string(),
-    content: a.json(),
-    coverImage: a.string(),
-    publishedAt: a.datetime(),
-    category: a.string(),
-    tags: a.string().array(),
+    url: a.string().required(),
+    content: a.string(),
+    updated: a.datetime(),
+    published: a.boolean().default(false),
+    categoryId: a.id(),
+    category: a.belongsTo('Category', 'categoryId'),
+    articleTags: a.hasMany('ArticleTag', 'articleId'),
+    featuredImageId: a.id(),
+    featuredImage: a.belongsTo('Image', 'featuredImageId'),
   })
-  .authorization(allow => [
-    // 1. Guests (public) can READ articles
-    allow.publicApiKey().to(['read']),
-    
-    // 2. Admins can do EVERYTHING (create, update, delete)
-    allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
-  ]),
+    .secondaryIndexes((index) => [index('url')])
+    .authorization(allow => [
+      allow.guest().to(['read']),
+      allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
+    ]),
 
-  Media: a.model({
-    path: a.string().required(),      // e.g. "posts/london-shard.jpg"
-    title: a.string(),                // e.g. "My London Trip"
-    altText: a.string(),              // Accessibility text
-    caption: a.string(),
-    description: a.string(),          
-    identityId: a.string(),           
-  })
-  .authorization(allow => [
-    // Public can READ (so blog visitors can see captions)
-    allow.publicApiKey().to(['read']),
-    // Admins have full control
-    allow.group('ADMINS').to(['read', 'create', 'update', 'delete']),
-  ])
+  Category: a
+    .model({
+      category: a.string().required(),
+      url: a.string().required(),
+      description: a.string(),
+      articles: a.hasMany('Article', 'categoryId'),
+    })
+    .secondaryIndexes((index) => [index('url')])
+    .authorization((allow) => [
+      allow.guest().to(['read']),
+      allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
+    ]),
+
+  Tag: a
+    .model({
+      tag: a.string().required(),
+      url: a.string().required(),
+      description: a.string(),
+      articleTags: a.hasMany('ArticleTag', 'tagId'),
+    })
+    .secondaryIndexes((index) => [index('url')])
+    .authorization((allow) => [
+      allow.guest().to(['read']),
+      allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
+    ]),
+
+  ArticleTag: a
+    .model({
+      articleId: a.id().required(),
+      tagId: a.id().required(),
+      article: a.belongsTo('Article', 'articleId'),
+      tag: a.belongsTo('Tag', 'tagId'),
+    })
+    .authorization((allow) => [
+      allow.guest().to(['read']),
+      allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
+    ]),
+
+  Image: a
+    .model({
+      name: a.string().required(),
+      url: a.string().required(),
+      caption: a.string(),
+      description: a.string(),
+      articles: a.hasMany('Article', 'featuredImageId'),
+    })
+    .authorization((allow) => [
+      allow.guest().to(['read']),
+      allow.group('ADMINS').to(['create', 'read', 'update', 'delete']),
+    ]),
 });
 
-// This helps your frontend know the types (TypeScript)
 export type Schema = ClientSchema<typeof schema>;
 
-// This tells Amplify to deploy the database
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: 'apiKey',
-    // We explicitly enable API Key for public access
-    apiKeyAuthorizationMode: {
-      expiresInDays: 30,
-    },
+    defaultAuthorizationMode: 'userPool',
   },
 });

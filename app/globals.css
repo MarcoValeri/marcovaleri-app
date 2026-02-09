@@ -3,20 +3,3 @@
 @theme {
     --font-tangerine: var(--font-tangerine);
 }
-
-/* Brute Force: Hide the second tab button (usually Create Account) */
-.amplify-tabs button:nth-of-type(2),
-.amplify-tabs__item:nth-of-type(2),
-[role="tablist"] > button:nth-child(2) {
-  display: none !important;
-}
-
-/* Brute Force: Hide the footer link "Don't have an account?" */
-.amplify-footer,
-[data-amplify-footer] {
-  display: none !important;
-}
-
-#amplify-id-_r_0_-tab-signUp {
-    display: none !important;
-}
