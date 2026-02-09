@@ -289,9 +289,9 @@ const ArticlesPage = () => {
     
     const articleData = {
       title: formData.title,
-      description: formData.description || undefined,
+      description: formData.description || '',
       url: formData.url,
-      content: cleanContent || undefined,
+      content: cleanContent || '',
       categoryId: formData.categoryId || undefined,
       published: publish,
       featuredImageId: formData.featuredImageId || undefined,

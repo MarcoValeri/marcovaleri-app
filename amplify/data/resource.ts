@@ -5,7 +5,7 @@ const schema = a.schema({
     title: a.string(),
     description: a.string(),
     url: a.string().required(),
-    content: a.json(),
+    content: a.string(),
     updated: a.datetime(),
     published: a.boolean().default(false),
     categoryId: a.id(),
