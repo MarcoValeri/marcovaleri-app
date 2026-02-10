@@ -3,6 +3,7 @@ import { getArticleByUrl, getArticles } from "@/app/lib/articles";
 import Nav from "@/app/components/Nav/Nav";
 import Header from "@/app/components/Header/Header";
 import ArticleTemplate from "@/app/components/ArticleTemplate/ArticleTemplate";
+import Footer from "@/app/components/Footer/Footer";
 
 interface SingleArticleProps {
   params: Promise<{
@@ -35,10 +36,10 @@ const SingleArticle = async ({ params }: SingleArticleProps) => {
     <div className="min-h-screen bg-white">
       <Nav />
       <Header />
-      
       <main>
         <ArticleTemplate article={article} relatedArticles={relatedArticles} />
       </main>
+      <Footer />
     </div>
   );
 };
