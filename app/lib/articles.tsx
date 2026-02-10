@@ -1,8 +1,9 @@
-import { generateClient } from 'aws-amplify/data';
+import { cookieBasedClient, runWithAmplifyServerContext } from './amplify-server-utils';
 import type { Schema } from '@/amplify/data/resource';
-import { getUrl } from 'aws-amplify/storage';
+import { getUrl } from 'aws-amplify/storage/server';
+import { cookies } from 'next/headers';
 
-const client = generateClient<Schema>();
+const client = cookieBasedClient as any;
 
 export interface Article {
   id: string;
@@ -52,7 +53,10 @@ const signContentImages = async (htmlContent: string): Promise<string> => {
     // If it looks like a relative storage key (not http)
     if (imgSrc && !imgSrc.startsWith('http')) {
       try {
-        const urlResult = await getUrl({ path: imgSrc });
+        const urlResult = await runWithAmplifyServerContext({
+          nextServerContext: { cookies },
+          operation: (contextSpec) => getUrl(contextSpec, { path: imgSrc })
+        });
         processedContent = processedContent.replace(
           `src="${imgSrc}"`,
           `src="${urlResult.url.toString()}"`
@@ -70,7 +74,10 @@ const signFeaturedImage = async (imageUrl?: string) => {
   if (!imageUrl || imageUrl.startsWith('http')) return imageUrl;
   
   try {
-    const urlResult = await getUrl({ path: imageUrl });
+    const urlResult = await runWithAmplifyServerContext({
+      nextServerContext: { cookies },
+      operation: (contextSpec) => getUrl(contextSpec, { path: imageUrl })
+    });
     return urlResult.url.toString();
   } catch (error) {
     console.error('Failed to sign featured image:', imageUrl);
@@ -295,20 +302,20 @@ export async function getArticlesByTag(tagUrl: string, limit?: number): Promise<
       return [];
     }
 
-    const articleIds = articleTags.map(at => at.articleId);
+    const articleIds = articleTags.map((at: any) => at.articleId);
 
     // Fetch all articles with these IDs
-    const articlesPromises = articleIds.map(id =>
+    const articlesPromises = articleIds.map((id: string) =>
       client.models.Article.get({ id })
     );
 
     const articlesResults = await Promise.all(articlesPromises);
     const articles = articlesResults
-      .map(result => result.data)
-      .filter(article => article && article.published);
+      .map((result: any) => result.data)
+      .filter((article: any) => article && article.published);
 
     // Sort by updated date (newest first)
-    const sortedArticles = articles.sort((a, b) => {
+    const sortedArticles = articles.sort((a: any, b: any) => {
       if (!a || !b) return 0;
       const dateA = new Date(a.updated || a.createdAt || 0).getTime();
       const dateB = new Date(b.updated || b.createdAt || 0).getTime();
@@ -320,7 +327,7 @@ export async function getArticlesByTag(tagUrl: string, limit?: number): Promise<
 
     // Sign featured image URLs
     const articlesWithSignedImages = await Promise.all(
-      limitedArticles.map(async (article) => {
+      limitedArticles.map(async (article: any) => {
         if (!article) return null;
         
         // Get featured image if exists
@@ -356,7 +363,7 @@ export async function getArticlesByTag(tagUrl: string, limit?: number): Promise<
       })
     );
 
-    return articlesWithSignedImages.filter(a => a !== null) as Article[];
+    return articlesWithSignedImages.filter((a: any) => a !== null) as Article[];
   } catch (error) {
     console.error('Error fetching articles by tag:', error);
     return [];
