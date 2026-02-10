@@ -7,7 +7,6 @@ import ArticleCard from "./components/ArticleCard/ArticleCard";
 import LinlButtonBlack from "./components/LinkButtonBlack/LinkButtonBlack";
 
 const Home = async () => {
-    // Fetch latest 10 articles
     const latestArticles = await getArticles(10);
 
     return (
@@ -17,8 +16,6 @@ const Home = async () => {
             <MainLayout>
                 <div>
                     <h2 className="text-4xl font-bold text-black mb-8">Ultimi articoli</h2>
-                    
-                    {/* Articles Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                         {latestArticles.map((article) => (
                             <ArticleCard
@@ -31,8 +28,6 @@ const Home = async () => {
                             />
                         ))}
                     </div>
-
-                    {/* View All Button */}
                     {latestArticles.length > 0 && (
                         <div className="text-center">
                             <LinlButtonBlack
@@ -42,8 +37,6 @@ const Home = async () => {
                             />
                         </div>
                     )}
-
-                    {/* No Articles Message */}
                     {latestArticles.length === 0 && (
                         <p className="text-center text-black opacity-60 py-12">
                             Nessun articolo disponibile al momento.
