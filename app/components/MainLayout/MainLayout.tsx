@@ -1,10 +1,14 @@
 import Sidebar from "../Sidebar/Sidebar";
 
-const MainLayout = () => {
+interface MainLayoutProps {
+    children: React.ReactNode;
+}
+
+const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <main className="flex flex-col lg:flex-row">
             <div className="w-full lg:w-[60%]">
-                <h2>Main</h2>
+                {children}
             </div>
             <div className="w-full lg:w-[40%]">
                 <Sidebar />

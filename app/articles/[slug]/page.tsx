@@ -4,6 +4,7 @@ import Nav from "@/app/components/Nav/Nav";
 import Header from "@/app/components/Header/Header";
 import ArticleTemplate from "@/app/components/ArticleTemplate/ArticleTemplate";
 import Footer from "@/app/components/Footer/Footer";
+import MainLayout from "@/app/components/MainLayout/MainLayout";
 
 interface SingleArticleProps {
   params: Promise<{
@@ -36,9 +37,11 @@ const SingleArticle = async ({ params }: SingleArticleProps) => {
     <div className="min-h-screen bg-white">
       <Nav />
       <Header />
-      <main>
-        <ArticleTemplate article={article} relatedArticles={relatedArticles} />
-      </main>
+      <MainLayout>
+        <div>
+            <ArticleTemplate article={article} relatedArticles={relatedArticles} />
+        </div>
+      </MainLayout>
       <Footer />
     </div>
   );
