@@ -2,11 +2,22 @@
 
 @theme {
     --font-tangerine: var(--font-tangerine);
+    --font-heading: var(--font-heading);
+    --font-body: var(--font-body);
     
     /* Brand Colors */
     --color-black: #000000;
     --color-white: #FFFFFF;
     --color-accent: #F8AD41;
+}
+
+/* Apply fonts globally */
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
 }
 
 .nav-link {

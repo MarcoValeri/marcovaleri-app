@@ -29,7 +29,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
         )}
 
         {/* Title */}
-        <h1 className="font-['Silka'] text-5xl lg:text-7xl font-bold leading-tight text-black mb-6">
+        <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-black mb-6">
           {article.title}
         </h1>
 
@@ -46,7 +46,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
 
         {/* Description */}
         {article.description && (
-          <h2 className="font-['Silka'] text-2xl lg:text-3xl leading-relaxed text-black mb-12">
+          <h2 className="text-2xl lg:text-3xl leading-relaxed text-black mb-12">
             {article.description}
           </h2>
         )}
@@ -69,7 +69,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
         {/* Article Content */}
         <div 
           className="prose prose-lg max-w-none mb-16
-            prose-headings:font-['Silka'] prose-headings:text-black prose-headings:font-bold
+            prose-headings:prose-headings:text-black prose-headings:font-bold
             prose-p:font-['Inter'] prose-p:text-black prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6
             prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-a:transition-all
             prose-strong:text-black prose-strong:font-semibold
@@ -102,7 +102,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
         <div className="max-w-7xl mx-auto mt-20">
-          <h2 className="font-['Silka'] text-4xl lg:text-5xl font-bold text-black mb-12">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-12">
             Read more articles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

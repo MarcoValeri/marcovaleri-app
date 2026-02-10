@@ -60,7 +60,7 @@ const ArticleCard = ({
         <div className="flex flex-col gap-5">
           {/* Title */}
           <h2
-            className={`font-['Silka'] text-[42px] leading-[1.1] font-medium transition-colors duration-500 ease-in-out
+            className={`text-[42px] leading-[1.1] font-medium transition-colors duration-500 ease-in-out
               ${isHovered ? 'text-white' : 'text-black'}`}
           >
             {title}

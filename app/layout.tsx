@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Merriweather, Tangerine } from "next/font/google";
+import { Playfair_Display, Inter, Tangerine } from "next/font/google";
 import ConfigureAmplifyClientSide from "./components/ConfigureAmplifyClientSide/ConfigureAmplifyClientSide";
 import '@aws-amplify/ui-react/styles.css';
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["400", "700", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: "400",
+  variable: "--font-body",
 });
 
 const tangerine = Tangerine({
@@ -47,9 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${merriweather.className} ${tangerine.variable} antialiased`}
-      >
+      <body className={`${playfair.variable} ${inter.variable} ${tangerine.variable} antialiased`}>
         <ConfigureAmplifyClientSide />
         {children}
       </body>
