@@ -2,4 +2,45 @@
 
 @theme {
     --font-tangerine: var(--font-tangerine);
+    --font-heading: var(--font-heading);
+    --font-body: var(--font-body);
+    
+    /* Brand Colors */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-accent: #F8AD41;
+}
+
+/* Apply fonts globally */
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--color-white);
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-white);
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
