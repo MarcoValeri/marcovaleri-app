@@ -3,11 +3,11 @@ import LinkButtonYellow from "../LinkButtonYellow/LinkButtonYellow";
 
 const Sidebar = () => {
     return (
-        <div className="p-8 space-y-8">
+        <div className="space-y-8">
             {/* Follow Me Section */}
             <div className="bg-white rounded-lg p-6 shadow-lg border border-black border-opacity-10">
                 <h3 className="text-2xl font-bold text-black mb-6">
-                    Follow me on:
+                    Seguimi su:
                 </h3>
                 
                 <div className="flex gap-4">
@@ -42,7 +42,7 @@ const Sidebar = () => {
                 <h3 className="text-2xl font-bold text-white mb-3">
                     Iscriviti alla mia newsletter
                 </h3>
-                <p className="font-['Inter'] text-white opacity-80 mb-6">
+                <p className="font-['Inter'] text-white mb-6">
                     Restiamo in contatto, iscriviti ora alla mia newsletter per leggere gli ultimi articoli ed i contenuti esclusivi
                 </p>
                 <LinkButtonYellow

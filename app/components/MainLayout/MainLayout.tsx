@@ -7,10 +7,10 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <main className="flex flex-col lg:flex-row">
-            <div className="w-full lg:w-[60%]">
+            <div className="w-full lg:w-[60%] p-6">
                 {children}
             </div>
-            <div className="w-full lg:w-[40%]">
+            <div className="w-full lg:w-[40%] p-6">
                 <Sidebar />
             </div>
         </main>
