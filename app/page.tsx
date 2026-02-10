@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getArticles } from "./lib/articles";
 import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";

@@ -69,12 +69,12 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
         {/* Article Content */}
         <div 
           className="prose prose-lg max-w-none mb-16
-            prose-headings:prose-headings:text-black prose-headings:font-bold
-            prose-p:font-['Inter'] prose-p:text-black prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6
+            prose-headings:text-black prose-headings:font-bold
+            prose-p:text-black prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6
             prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-a:transition-all
             prose-strong:text-black prose-strong:font-semibold
-            prose-ul:font-['Inter'] prose-ul:text-black prose-ul:text-lg
-            prose-ol:font-['Inter'] prose-ol:text-black prose-ol:text-lg
+            prose-ul:text-black prose-ul:text-lg
+            prose-ol:text-black prose-ol:text-lg
             prose-li:mb-2
             prose-img:rounded-lg prose-img:shadow-lg
             prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:pl-6 prose-blockquote:italic
