@@ -15,8 +15,9 @@ const Nav = () => {
             <ul className="md:block hidden">
                 <li><Link href="/"><span className="text-3xl">Marco Valeri</span></Link></li>
             </ul>
-            <ul className="md:block hidden">
-                <li><Link href="/">Home</Link></li>
+            <ul className="md:flex hidden gap-6">
+                <li><Link href="/" className="nav-link">Home</Link></li>
+                <li><Link href="/articles" className="nav-link">Articles</Link></li>
             </ul>
             <div className="md:hidden block z-20">
                 <button
@@ -37,6 +38,7 @@ const Nav = () => {
                 <ul className="flex flex-col items-center justify-center h-full gap-y-8">
                     <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-3xl">Marco Valeri</span></Link></li>
                     <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-2xl">Home</span></Link></li>
+                    <li><Link href="/articles" onClick={handleShowMobileMenu}><span className="text-2xl">Articles</span></Link></li>
                 </ul>
             </div>
         </nav>
