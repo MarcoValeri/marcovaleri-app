@@ -10,19 +10,19 @@ const LinkButtonYellow = ({ externalLink, link, content }: LinkButtonYellowProps
 
     if (externalLink) {
         return (
-            <Link className="block w-full px-6 py-3 bg-accent text-white font-medium text-center rounded-lg hover:bg-white hover:text-black transition-all duration-300" href={link}>{content}</Link>
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full px-6 py-3 bg-accent text-white font-medium text-center rounded-lg hover:bg-white hover:text-black transition-all duration-300"
+            >
+                {content}
+            </a>
         )
     }
 
     return (
-        <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full px-6 py-3 bg-accent text-white font-medium text-center rounded-lg hover:bg-white hover:text-black transition-all duration-300"
-        >
-            {content}
-        </a>
+        <Link className="block w-full px-6 py-3 bg-accent text-white font-medium text-center rounded-lg hover:bg-white hover:text-black transition-all duration-300" href={link}>{content}</Link>
     )
 }
 

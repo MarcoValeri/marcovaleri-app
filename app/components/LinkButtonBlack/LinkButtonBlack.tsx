@@ -1,13 +1,27 @@
 import Link from "next/link";
 
-interface LinlButtonBlackProps {
+interface LinkButtonBlackProps {
     externalLink: boolean;
     link: string;
     content: string;
 }
 
-const LinlButtonBlack = ({ externalLink, link, content }: LinlButtonBlackProps) => {
+const LinkButtonBlack = ({ externalLink, link, content }: LinkButtonBlackProps) => {
     if (externalLink) {
+        return (
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-black text-white font-medium rounded-lg 
+                        hover:bg-accent transition-all duration-300 hover:scale-105"
+            >
+                {content}
+            </a>
+        )
+    }
+
+    return (
         <Link
             href={link}
             className="inline-block px-8 py-4 bg-black text-white font-medium rounded-lg 
@@ -15,17 +29,7 @@ const LinlButtonBlack = ({ externalLink, link, content }: LinlButtonBlackProps) 
         >
             {content}
         </Link>
-    }
-
-    return (
-        <a
-            href={link}
-            className="inline-block px-8 py-4 bg-black text-white font-medium rounded-lg 
-                        hover:bg-accent transition-all duration-300 hover:scale-105"
-        >
-            {content}
-        </a>
     )
 }
 
-export default LinlButtonBlack;
+export default LinkButtonBlack;
