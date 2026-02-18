@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { getArticles } from "./lib/articles";
 import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";
@@ -5,6 +6,11 @@ import Footer from "./components/Footer/Footer";
 import MainLayout from "./components/MainLayout/MainLayout";
 import ArticleCard from "./components/ArticleCard/ArticleCard";
 import LinlButtonBlack from "./components/LinkButtonBlack/LinkButtonBlack";
+
+export const metadata: Metadata = {
+    title: "Marco Valeri - Home",
+    description: "Scopri le mie esperienze, i miei viaggi e le mie storie. Articoli su tecnologia, viaggi e vita quotidiana.",
+};
 
 const Home = async () => {
     const latestArticles = await getArticles(10);
