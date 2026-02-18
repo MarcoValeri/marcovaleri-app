@@ -47,7 +47,7 @@ const Sidebar = () => {
                 </p>
                 <LinkButtonYellow
                     externalLink={true}
-                    link="/"
+                    link="https://mailchi.mp/marcovaleri/marco-valeri-newsletter"
                     content="Iscriviti"
                 />
             </div>
