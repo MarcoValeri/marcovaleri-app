@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchAuthSession } from "aws-amplify/auth";
-import { MdDashboard, MdMenu, MdClose, MdArrowOutward, MdArticle, MdCategory, MdTag, MdImage } from "react-icons/md";
+import { MdDashboard, MdMenu, MdClose, MdArrowOutward, MdArticle, MdCategory, MdTag, MdImage, MdMap } from "react-icons/md";
 import AdminMenu from "../AdminMenu/AdminMenu.tsx";
 import AdminLink from "../AdminLink/AdminLink.tsx";
 
@@ -86,6 +86,13 @@ const AdminSidebar = () => {
                             pathName="/admin/images"
                             label="Images"
                             icon={MdImage}
+                        />
+                    </div>
+                    <div className="mb-5">
+                        <AdminLink
+                            pathName="/sitemap.xml"
+                            label="Sitemap"
+                            icon={MdMap}
                         />
                     </div>
                     <div className="mb-5">
