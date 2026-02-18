@@ -53,7 +53,7 @@ describe('Sidebar', () => {
     it('should have Instagram link with correct href', () => {
       render(<Sidebar />);
       const instagramLink = screen.getByLabelText('Follow on Instagram');
-      expect(instagramLink).toHaveAttribute('href', 'https://instagram.com/yourusername');
+      expect(instagramLink).toHaveAttribute('href', 'https://www.instagram.com/marcovalerinet/');
     });
 
     it('should have TikTok link with correct href', () => {
