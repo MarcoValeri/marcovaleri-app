@@ -1,9 +1,15 @@
+import { Metadata } from "next";
 import { getArticles } from "@/app/lib/articles";
 import Nav from "../components/Nav/Nav";
 import Header from "../components/Header/Header";
 import MainLayout from "../components/MainLayout/MainLayout";
 import ArticleList from "../components/ArticleList/ArticleList";
 import Footer from "../components/Footer/Footer";
+
+export const metadata: Metadata = {
+    title: "Articoli - Marco Valeri",
+    description: "Tutti gli articoli di Marco Valeri. Scopri le mie esperienze, i miei viaggi e le mie storie.",
+};
 
 const ArticlesPage = async () => {
   const articles = await getArticles();

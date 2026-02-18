@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArticleByUrl, getArticles } from "@/app/lib/articles";
 import Nav from "@/app/components/Nav/Nav";
@@ -10,6 +11,23 @@ interface SingleArticleProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: SingleArticleProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticleByUrl(slug);
+
+  if (!article) {
+    return {
+      title: "Article Not Found",
+      description: "The requested article could not be found.",
+    };
+  }
+
+  return {
+    title: `${article.title} - Marco Valeri`,
+    description: article.description || `Read ${article.title} by Marco Valeri`,
+  };
 }
 
 const SingleArticle = async ({ params }: SingleArticleProps) => {
