@@ -13,7 +13,7 @@ const Sidebar = () => {
                 <div className="flex gap-4">
                     {/* Instagram */}
                     <a
-                        href="https://instagram.com/yourusername"
+                        href="https://www.instagram.com/marcovalerinet/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
