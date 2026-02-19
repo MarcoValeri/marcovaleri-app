@@ -82,6 +82,26 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
           dangerouslySetInnerHTML={{ __html: article.content || '' }} 
         />
 
+        {/* Newsletter Banner */}
+        <div className="my-16 bg-black text-white rounded-lg p-8 lg:p-12">
+          <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+            Restiamo in contatto
+          </h3>
+          <p className="text-lg leading-relaxed mb-6 opacity-90">
+            Ti è piaciuto questo articolo? Iscriviti alla mia newsletter per non perderti 
+            le prossime riflessioni. È uno spazio tranquillo, lontano dal rumore dei social, 
+            dove rispondo personalmente a ogni email.
+          </p>
+          <a
+            href="https://mailchi.mp/marcovaleri/marco-valeri-newsletter"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-white transition-all duration-300"
+          >
+            Iscriviti alla Newsletter
+          </a>
+        </div>
+
         {/* Tags */}
         {article.articleTags && article.articleTags.length > 0 && (
           <div className="flex flex-wrap gap-3 mb-16 pb-16 border-b border-black border-opacity-10">
