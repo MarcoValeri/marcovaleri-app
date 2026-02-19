@@ -30,7 +30,7 @@ const Home = async () => {
                                 description={article.description || ''}
                                 category={article.category?.category}
                                 imageUrl={article.featuredImage?.url}
-                                articleUrl={`/articles/${article.url}`}
+                                articleUrl={`/articoli/${article.url}`}
                             />
                         ))}
                     </div>
