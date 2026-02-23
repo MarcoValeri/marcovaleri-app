@@ -22,7 +22,7 @@ const tangerine = Tangerine({
 })
 
 const currentEnv = process.env.NEXT_PUBLIC_ENV;
-const isDevEnv = currentEnv === "dev";
+const isDevEnv = currentEnv === "dev" || currentEnv === "main";
 
 export const metadata: Metadata = {
     title: "Create Next App",
