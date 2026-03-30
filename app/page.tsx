@@ -22,7 +22,7 @@ const Home = async () => {
             <MainLayout>
                 <div>
                     <h2 className="text-4xl font-bold text-black mb-8">Ultimi articoli</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div className="flex flex-wrap gap-8 mb-12">
                         {latestArticles.map((article) => (
                             <ArticleCard
                                 key={article.id}
@@ -31,6 +31,7 @@ const Home = async () => {
                                 category={article.category?.category}
                                 imageUrl={article.featuredImage?.url}
                                 articleUrl={`/articoli/${article.url}`}
+                                className="w-full md:w-[calc(50%-1rem)]"
                             />
                         ))}
                     </div>
@@ -38,7 +39,7 @@ const Home = async () => {
                         <div className="text-center">
                             <LinlButtonBlack
                                 externalLink={false}
-                                link="/articles"
+                                link="/articoli"
                                 content="View all articles"
                             />
                         </div>

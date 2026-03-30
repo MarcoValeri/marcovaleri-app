@@ -32,7 +32,7 @@ const ArticleCard = ({
       className={`block ${className}`}
     >
       <article
-        className={`flex flex-col gap-[30px] p-5 rounded-[10px] transition-all duration-500 ease-in-out
+        className={`flex flex-col gap-[30px] p-5 rounded-[10px] h-full transition-all duration-500 ease-in-out
           shadow-[0px_0px_50px_0px_rgba(0,0,0,0.1)]
           ${isHovered ? 'bg-black shadow-[0px_10px_60px_0px_rgba(0,0,0,0.3)] -translate-y-2' : 'bg-white'}`}
       >

@@ -195,7 +195,7 @@ const ArticlesPage = () => {
       
       const timer = setTimeout(() => {
         if (formData.title && formData.url) {
-          handleSave(false); // Save as draft
+          handleSave(false, true); // Silent auto-save as draft
         }
       }, 30000);
       
@@ -278,7 +278,7 @@ const ArticlesPage = () => {
     }
   };
 
-  const handleSave = async (publish: boolean) => {
+  const handleSave = async (publish: boolean, silent: boolean = false) => {
     if (!validateForm()) return;
     
     setIsSaving(true);
@@ -333,8 +333,16 @@ const ArticlesPage = () => {
       }
       
       fetchArticles();
-      showNotification('success', publish ? 'Article published successfully!' : 'Article saved successfully!');
-      closeForm();
+      if (silent) {
+        // Set editingArticle so subsequent auto-saves update instead of creating duplicates
+        if (!editingArticle && savedArticle.data) {
+          setEditingArticle({ ...articleData, id: savedArticle.data.id, published: publish } as Article);
+        }
+        showNotification('success', 'Auto-saved as draft');
+      } else {
+        showNotification('success', publish ? 'Article published successfully!' : 'Article saved successfully!');
+        closeForm();
+      }
     } catch (error) {
       console.error('Error saving article:', error);
       showNotification('error', 'Error saving article. Please try again.');

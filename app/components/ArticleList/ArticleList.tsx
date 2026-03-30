@@ -26,7 +26,7 @@ const ArticleList = ({ articles, itemsPerPage = 9 }: ArticleListProps) => {
   return (
     <div>
       {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className="flex flex-wrap gap-8 mb-12">
         {currentArticles.map((article) => (
           <ArticleCard
             key={article.id}
@@ -35,6 +35,7 @@ const ArticleList = ({ articles, itemsPerPage = 9 }: ArticleListProps) => {
             category={article.category?.category}
             imageUrl={article.featuredImage?.url}
             articleUrl={`/articoli/${article.url}`}
+            className="w-full xl:w-[calc(50%-1rem)] 2xl:w-[calc(33.333%-1.34rem)]"
           />
         ))}
       </div>
