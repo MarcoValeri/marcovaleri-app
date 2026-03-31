@@ -126,7 +126,7 @@ describe('ArticleTemplate', () => {
 
     it('should render related articles section when provided', () => {
       render(<ArticleTemplate article={mockArticle} relatedArticles={relatedArticles} />);
-      expect(screen.getByText('Read more articles')).toBeInTheDocument();
+      expect(screen.getByText('Ti potrebbe interessare')).toBeInTheDocument();
     });
 
     it('should render all related articles', () => {
@@ -137,12 +137,12 @@ describe('ArticleTemplate', () => {
 
     it('should not render related articles section when empty', () => {
       render(<ArticleTemplate article={mockArticle} relatedArticles={[]} />);
-      expect(screen.queryByText('Read more articles')).not.toBeInTheDocument();
+      expect(screen.queryByText('Ti potrebbe interessare')).not.toBeInTheDocument();
     });
 
     it('should not render related articles section when not provided', () => {
       render(<ArticleTemplate article={mockArticle} />);
-      expect(screen.queryByText('Read more articles')).not.toBeInTheDocument();
+      expect(screen.queryByText('Ti potrebbe interessare')).not.toBeInTheDocument();
     });
   });
 

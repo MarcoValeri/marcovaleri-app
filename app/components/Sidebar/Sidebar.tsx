@@ -32,7 +32,7 @@ const Sidebar = () => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
                                  hover:bg-accent transition-all duration-300 hover:scale-110"
-                        aria-label="Follow on Instagram"
+                        aria-label="Follow on Threads"
                     >
                         <FaThreads size={24} />
                     </a>
@@ -56,7 +56,7 @@ const Sidebar = () => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
                                  hover:bg-accent transition-all duration-300 hover:scale-110"
-                        aria-label="Follow on Instagram"
+                        aria-label="Follow on Substack"
                     >
                         <BsSubstack size={24} />
                     </a>

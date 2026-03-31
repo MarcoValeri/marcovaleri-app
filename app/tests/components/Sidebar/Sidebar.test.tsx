@@ -8,6 +8,14 @@ vi.mock('react-icons/fa', () => ({
   FaTiktok: () => <div data-testid="tiktok-icon">TikTok</div>,
 }));
 
+vi.mock('react-icons/fa6', () => ({
+  FaThreads: () => <div data-testid="threads-icon">Threads</div>,
+}));
+
+vi.mock('react-icons/bs', () => ({
+  BsSubstack: () => <div data-testid="substack-icon">Substack</div>,
+}));
+
 // Mock LinkButtonYellow
 vi.mock('@/app/components/LinkButtonYellow/LinkButtonYellow', () => ({
   default: ({ content }: { content: string }) => (
@@ -37,9 +45,19 @@ describe('Sidebar', () => {
       expect(screen.getByTestId('instagram-icon')).toBeInTheDocument();
     });
 
+    it('should render Threads icon', () => {
+      render(<Sidebar />);
+      expect(screen.getByTestId('threads-icon')).toBeInTheDocument();
+    });
+
     it('should render TikTok icon', () => {
       render(<Sidebar />);
       expect(screen.getByTestId('tiktok-icon')).toBeInTheDocument();
+    });
+
+    it('should render Substack icon', () => {
+      render(<Sidebar />);
+      expect(screen.getByTestId('substack-icon')).toBeInTheDocument();
     });
 
     it('should render newsletter button', () => {
@@ -52,32 +70,58 @@ describe('Sidebar', () => {
   describe('Social Media Links', () => {
     it('should have Instagram link with correct href', () => {
       render(<Sidebar />);
-      const instagramLink = screen.getByLabelText('Follow on Instagram');
-      expect(instagramLink).toHaveAttribute('href', 'https://www.instagram.com/marcovalerinet/');
+      const link = screen.getByLabelText('Follow on Instagram');
+      expect(link).toHaveAttribute('href', 'https://www.instagram.com/marcovalerinet/');
+    });
+
+    it('should have Threads link with correct href', () => {
+      render(<Sidebar />);
+      const link = screen.getByLabelText('Follow on Threads');
+      expect(link).toHaveAttribute('href', 'https://www.threads.com/@marcovalerinet');
     });
 
     it('should have TikTok link with correct href', () => {
       render(<Sidebar />);
-      const tiktokLink = screen.getByLabelText('Follow on TikTok');
-      expect(tiktokLink).toHaveAttribute('href', 'https://tiktok.com/@yourusername');
+      const link = screen.getByLabelText('Follow on TikTok');
+      expect(link).toHaveAttribute('href', 'https://www.tiktok.com/@marcovalerinet');
+    });
+
+    it('should have Substack link with correct href', () => {
+      render(<Sidebar />);
+      const link = screen.getByLabelText('Follow on Substack');
+      expect(link).toHaveAttribute('href', 'https://substack.com/@marcovaleri');
     });
 
     it('should open social links in new tab', () => {
       render(<Sidebar />);
       const instagramLink = screen.getByLabelText('Follow on Instagram');
+      const threadsLink = screen.getByLabelText('Follow on Threads');
       const tiktokLink = screen.getByLabelText('Follow on TikTok');
-      
+      const substackLink = screen.getByLabelText('Follow on Substack');
+
       expect(instagramLink).toHaveAttribute('target', '_blank');
+      expect(threadsLink).toHaveAttribute('target', '_blank');
       expect(tiktokLink).toHaveAttribute('target', '_blank');
+      expect(substackLink).toHaveAttribute('target', '_blank');
     });
 
     it('should have proper security attributes on external links', () => {
       render(<Sidebar />);
       const instagramLink = screen.getByLabelText('Follow on Instagram');
+      const threadsLink = screen.getByLabelText('Follow on Threads');
       const tiktokLink = screen.getByLabelText('Follow on TikTok');
-      
+      const substackLink = screen.getByLabelText('Follow on Substack');
+
       expect(instagramLink).toHaveAttribute('rel', 'noopener noreferrer');
+      expect(threadsLink).toHaveAttribute('rel', 'noopener noreferrer');
       expect(tiktokLink).toHaveAttribute('rel', 'noopener noreferrer');
+      expect(substackLink).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+
+    it('should have 4 social media links', () => {
+      const { container } = render(<Sidebar />);
+      const socialLinks = container.querySelectorAll('.flex.gap-4 a');
+      expect(socialLinks).toHaveLength(4);
     });
   });
 
@@ -109,15 +153,17 @@ describe('Sidebar', () => {
     it('should have shadow on sections', () => {
       const { container } = render(<Sidebar />);
       const sections = container.querySelectorAll('.shadow-lg');
-      expect(sections.length).toBe(2);
+      expect(sections).toHaveLength(2);
     });
   });
 
   describe('Accessibility', () => {
-    it('should have aria-labels on social links', () => {
+    it('should have unique aria-labels on all social links', () => {
       render(<Sidebar />);
       expect(screen.getByLabelText('Follow on Instagram')).toBeInTheDocument();
+      expect(screen.getByLabelText('Follow on Threads')).toBeInTheDocument();
       expect(screen.getByLabelText('Follow on TikTok')).toBeInTheDocument();
+      expect(screen.getByLabelText('Follow on Substack')).toBeInTheDocument();
     });
 
     it('should have proper heading hierarchy', () => {
