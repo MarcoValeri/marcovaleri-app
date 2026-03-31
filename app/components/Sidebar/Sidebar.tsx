@@ -1,4 +1,6 @@
 import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
+import { BsSubstack } from "react-icons/bs";
 import LinkButtonYellow from "../LinkButtonYellow/LinkButtonYellow";
 
 const Sidebar = () => {
@@ -22,10 +24,22 @@ const Sidebar = () => {
                     >
                         <FaInstagram size={24} />
                     </a>
-                    
+
+                    {/* Threads */}
+                    <a
+                        href="https://www.threads.com/@marcovalerinet"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
+                                 hover:bg-accent transition-all duration-300 hover:scale-110"
+                        aria-label="Follow on Instagram"
+                    >
+                        <FaThreads size={24} />
+                    </a>
+
                     {/* TikTok */}
                     <a
-                        href="https://tiktok.com/@yourusername"
+                        href="https://www.tiktok.com/@marcovalerinet"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
@@ -34,6 +48,19 @@ const Sidebar = () => {
                     >
                         <FaTiktok size={24} />
                     </a>
+
+                    {/* Substack */}
+                    <a
+                        href="https://substack.com/@marcovaleri"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white 
+                                 hover:bg-accent transition-all duration-300 hover:scale-110"
+                        aria-label="Follow on Instagram"
+                    >
+                        <BsSubstack size={24} />
+                    </a>
+                    
                 </div>
             </div>
 
