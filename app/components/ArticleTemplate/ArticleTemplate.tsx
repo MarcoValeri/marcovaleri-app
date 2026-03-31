@@ -123,9 +123,9 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
       {relatedArticles.length > 0 && (
         <div className="max-w-7xl mx-auto mt-20">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-12">
-            Read more articles
+            Ti potrebbe interessare
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap gap-8">
             {relatedArticles.map((relatedArticle) => (
               <ArticleCard
                 key={relatedArticle.id}
@@ -133,7 +133,8 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
                 description={relatedArticle.description || ''}
                 category={relatedArticle.category?.category}
                 imageUrl={relatedArticle.featuredImage?.url}
-                articleUrl={`/articles/${relatedArticle.url}`}
+                articleUrl={`/articoli/${relatedArticle.url}`}
+                className="w-full md:w-[calc(50%-1rem)]"
               />
             ))}
           </div>
