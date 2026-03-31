@@ -85,6 +85,13 @@ const signFeaturedImage = async (imageUrl?: string) => {
   }
 };
 
+// Helper: returns true if the article is scheduled for a future date
+const isScheduled = (article: Article): boolean => {
+  const updated = article.updated || article.createdAt;
+  if (!updated) return false;
+  return new Date(updated).getTime() > Date.now();
+};
+
 /**
  * Fetch all published articles
  * @param limit - Optional limit for number of articles to fetch
@@ -111,8 +118,10 @@ export async function getArticles(limit?: number): Promise<Article[]> {
       ]
     });
 
-    // Sort by updated date (newest first)
-    const sortedArticles = (data as Article[]).sort((a, b) => {
+    // Exclude scheduled (future) articles, then sort by updated date (newest first)
+    const sortedArticles = (data as Article[])
+      .filter(a => !isScheduled(a))
+      .sort((a, b) => {
       const dateA = new Date(a.updated || a.createdAt || 0).getTime();
       const dateB = new Date(b.updated || b.createdAt || 0).getTime();
       return dateB - dateA;
@@ -180,6 +189,11 @@ export async function getArticleByUrl(urlSlug: string): Promise<Article | null> 
 
     const article = data[0] as Article;
 
+    // Return null if the article is scheduled for a future date
+    if (isScheduled(article)) {
+      return null;
+    }
+
     // Sign images in content
     if (article.content) {
       article.content = await signContentImages(article.content);
@@ -240,8 +254,10 @@ export async function getArticlesByCategory(categoryUrl: string, limit?: number)
       ]
     });
 
-    // Sort by updated date (newest first)
-    const sortedArticles = (data as Article[]).sort((a, b) => {
+    // Exclude scheduled (future) articles, then sort by updated date (newest first)
+    const sortedArticles = (data as Article[])
+      .filter(a => !isScheduled(a))
+      .sort((a, b) => {
       const dateA = new Date(a.updated || a.createdAt || 0).getTime();
       const dateB = new Date(b.updated || b.createdAt || 0).getTime();
       return dateB - dateA;
@@ -312,7 +328,7 @@ export async function getArticlesByTag(tagUrl: string, limit?: number): Promise<
     const articlesResults = await Promise.all(articlesPromises);
     const articles = articlesResults
       .map((result: any) => result.data)
-      .filter((article: any) => article && article.published);
+      .filter((article: any) => article && article.published && !isScheduled(article));
 
     // Sort by updated date (newest first)
     const sortedArticles = articles.sort((a: any, b: any) => {
