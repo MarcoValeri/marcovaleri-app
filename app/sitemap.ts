@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // Generate article URLs
   const articleUrls = articles.map((article) => ({
-    url: `${baseUrl}/articles/${article.url}`,
+    url: `${baseUrl}/articoli/${article.url}`,
     lastModified: article.updated || article.createdAt || new Date().toISOString(),
   }));
 
@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date().toISOString(),
     },
     {
-      url: `${baseUrl}/articles`,
+      url: `${baseUrl}/articoli`,
       lastModified: new Date().toISOString(),
     },
     ...articleUrls,

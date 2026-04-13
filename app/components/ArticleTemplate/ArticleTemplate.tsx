@@ -36,7 +36,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
         {/* Date Posted */}
         {article.updated && (
           <p className="font-['Inter'] text-sm uppercase text-black opacity-60 mb-8">
-            {new Date(article.updated).toLocaleDateString('en-US', { 
+            {new Date(article.updated).toLocaleDateString('it-IT', { 
               month: 'long', 
               day: 'numeric', 
               year: 'numeric' 
