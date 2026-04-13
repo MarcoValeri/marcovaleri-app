@@ -78,7 +78,7 @@ describe('ArticleTemplate', () => {
 
     it('should format and display date', () => {
       render(<ArticleTemplate article={mockArticle} />);
-      expect(screen.getByText(/January 1, 2024/i)).toBeInTheDocument();
+      expect(screen.getByText(/1 Gennaio 2024/i)).toBeInTheDocument();
     });
   });
 

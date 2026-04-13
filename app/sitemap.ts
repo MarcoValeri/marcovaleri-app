@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getArticles } from './lib/articles';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://marcovaleri.com';
+  const baseUrl = 'https://marcovaleri.net';
   
   // Fetch all published articles
   const articles = await getArticles();
@@ -20,6 +20,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/articoli`,
+      lastModified: new Date().toISOString(),
+    },
+    {
+      url: `${baseUrl}/chi-sono`,
+      lastModified: new Date().toISOString(),
+    },
+    {
+      url: `${baseUrl}/contatti`,
       lastModified: new Date().toISOString(),
     },
     ...articleUrls,
