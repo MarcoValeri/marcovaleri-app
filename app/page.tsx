@@ -13,7 +13,12 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-    const latestArticles = await getArticles(10);
+    let latestArticles = await getArticles(10);
+
+    // Filter out articles with missing required fields to prevent render crashes
+    latestArticles = latestArticles.filter(
+        (article) => article.id && article.title && article.url
+    );
 
     return (
         <div>

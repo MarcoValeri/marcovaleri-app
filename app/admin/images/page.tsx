@@ -79,10 +79,10 @@ const ImagePage = () => {
   };
 
   const handleFileUpload = async (file: File) => {
-    // File size validation (500MB limit)
-    const maxSize = 500 * 1024 * 1024; // 500MB in bytes
+    // File size validation (500KB limit)
+    const maxSize = 500 * 1024; // 500KB in bytes
     if (file.size > maxSize) {
-      throw new Error(`File size (${(file.size / 1024 / 1024).toFixed(1)}MB) exceeds the 500MB limit`);
+      throw new Error(`File size (${(file.size / 1024).toFixed(0)}KB) exceeds the 500KB limit`);
     }
 
     try {
@@ -398,7 +398,7 @@ const ImagePage = () => {
                       className="w-full border rounded px-3 py-2"
                       required={!editingImage}
                     />
-                    <p className="text-xs text-gray-500 mt-1">Maximum file size: 500MB</p>
+                    <p className="text-xs text-gray-500 mt-1">Maximum file size: 500KB</p>
                   </div>
                 )}
 
