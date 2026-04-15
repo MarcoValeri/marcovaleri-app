@@ -294,7 +294,7 @@ const ArticlesPage = () => {
       content: cleanContent || '',
       categoryId: formData.categoryId || undefined,
       published: publish,
-      featuredImageId: formData.featuredImageId || undefined,
+      featuredImageId: formData.featuredImageId || null,
       updated: formData.updated && formData.updated.trim() 
         ? new Date(formData.updated).toISOString() 
         : new Date().toISOString()
