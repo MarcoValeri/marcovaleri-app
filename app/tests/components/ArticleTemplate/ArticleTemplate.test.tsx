@@ -160,7 +160,7 @@ describe('ArticleTemplate', () => {
     it('should handle empty content', () => {
       const articleWithoutContent = { ...mockArticle, content: '' };
       const { container } = render(<ArticleTemplate article={articleWithoutContent} />);
-      const proseDiv = container.querySelector('.prose');
+      const proseDiv = container.querySelector('.article-content');
       expect(proseDiv).toBeInTheDocument();
     });
   });
