@@ -9,7 +9,7 @@ import LinlButtonBlack from "./components/LinkButtonBlack/LinkButtonBlack";
 
 export const metadata: Metadata = {
     title: "Marco Valeri - Home",
-    description: "Scopri le mie esperienze, i miei viaggi e le mie storie. Articoli su tecnologia, viaggi e vita quotidiana.",
+    description: "Scopri le mie esperienze, i miei viaggi e le mie storie. Articoli sui miei viaggi e la vita quotidiana.",
 };
 
 const Home = async () => {
