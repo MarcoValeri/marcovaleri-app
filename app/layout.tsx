@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Inter, Tangerine } from "next/font/google";
 import ConfigureAmplifyClientSide from "./components/ConfigureAmplifyClientSide/ConfigureAmplifyClientSide";
 import '@aws-amplify/ui-react/styles.css';
@@ -43,6 +44,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {!isDevEnv && (
+          <>
+            <Script
+              id="Cookiebot"
+              src="https://consent.cookiebot.com/uc.js"
+              data-cbid="19ec825f-7712-48b2-a537-07c189e5406f"
+              data-blockingmode="auto"
+              type="text/javascript"
+              strategy="beforeInteractive"
+            />
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-Y5V630M9K0');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className={`${playfair.variable} ${inter.variable} ${tangerine.variable} antialiased`}>
         <ConfigureAmplifyClientSide />
         {children}
