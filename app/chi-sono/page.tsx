@@ -71,17 +71,7 @@ const ChiSonoPage = () => {
                             >
                                 iscriverti alla mia newsletter
                             </a>
-                            {' '}per ricevere i miei pensieri direttamente nella tua casella di posta, o a seguirmi 
-                            su{' '}
-                            <a 
-                                href="https://www.instagram.com/marcovalerinet/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-black underline hover:opacity-70 transition-opacity font-semibold"
-                            >
-                                Instagram
-                            </a>
-                            {' '}per un saluto più informale.
+                            {' '}per ricevere i miei pensieri direttamente nella tua casella di posta.
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
@@ -89,8 +79,7 @@ const ChiSonoPage = () => {
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed">
-                            A presto,<br />
-                            Marco
+                            A presto, Marco.
                         </p>
                     </div>
                 </div>
