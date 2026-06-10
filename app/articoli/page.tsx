@@ -3,7 +3,7 @@ import { getArticles } from "@/app/lib/articles";
 import Nav from "../components/Nav/Nav";
 import Header from "../components/Header/Header";
 import MainLayout from "../components/MainLayout/MainLayout";
-import ArticleList from "../components/ArticleList/ArticleList";
+import ArticleListWithFilter from "../components/ArticleListWithFilter/ArticleListWithFilter";
 import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = {
@@ -23,12 +23,12 @@ const ArticlesPage = async () => {
         <div className="px-8 lg:px-10 py-12 lg:py-20">
             {/* Page Title */}
             <div className="mb-12">
-            <h1 className="text-5xl lg:text-6xl font-bold text-black mb-4">Articoli</h1>
-            <p className="text-xl text-black opacity-70">Scopri le mie esperienze, i miei viaggi, le mie storie</p>
+              <h1 className="text-5xl lg:text-6xl font-bold text-black mb-4">Articoli</h1>
+              <p className="text-xl text-black opacity-70">Scopri le mie esperienze, i miei viaggi, le mie storie</p>
             </div>
 
-            {/* Articles List with Pagination */}
-            <ArticleList articles={articles} />
+            {/* Articles List with Category Filter and Pagination */}
+            <ArticleListWithFilter articles={articles} />
         </div>
       </MainLayout>
       <Footer />

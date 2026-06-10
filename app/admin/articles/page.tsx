@@ -72,6 +72,15 @@ const ArticlesPage = () => {
     updated: ''
   });
 
+  // --- HELPER FUNCTIONS ---
+  // Convert a UTC date string to a local datetime string for datetime-local input
+  const toLocalDatetimeString = (utcDate: string): string => {
+    const date = new Date(utcDate);
+    const offset = date.getTimezoneOffset();
+    const local = new Date(date.getTime() - offset * 60000);
+    return local.toISOString().slice(0, 16);
+  };
+
   // --- HELPER FUNCTIONS FOR IMAGE URL HANDLING ---
   // 1. CLEANING (Before Save): "https://...s3.../public/images/dog.jpg?token=..." -> "public/images/dog.jpg"
   const prepareContentForSave = (htmlContent: string) => {
@@ -389,7 +398,7 @@ const ArticlesPage = () => {
         categoryId: article.category?.id || '',
         published: article.published,
         featuredImageId: article.featuredImageId || '',
-        updated: article.updated ? new Date(article.updated).toISOString().slice(0, 16) : ''
+        updated: article.updated ? toLocalDatetimeString(article.updated) : ''
       });
       
       setSelectedTags(
