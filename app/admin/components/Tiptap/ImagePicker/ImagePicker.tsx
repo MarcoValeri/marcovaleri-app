@@ -16,10 +16,21 @@ type Props = {
 
 const ImagePicker = ({ images, onSelect, onClose }: Props) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
 
     const filteredImages = images.filter(img => 
         img.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const totalPages = Math.ceil(filteredImages.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentImages = filteredImages.slice(startIndex, startIndex + itemsPerPage);
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+        setCurrentPage(1);
+    };
 
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-60">
@@ -37,13 +48,13 @@ const ImagePicker = ({ images, onSelect, onClose }: Props) => {
                         type="text"
                         placeholder="Search images..."
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={handleSearch}
                         className="w-full pl-9 p-2 border rounded"
                     />
                 </div>
                 
                 <div className="grid grid-cols-3 gap-3 overflow-y-auto p-1">
-                    {filteredImages.map(image => (
+                    {currentImages.map(image => (
                         <div
                             key={image.id}
                             onClick={() => onSelect(image)}
@@ -59,6 +70,28 @@ const ImagePicker = ({ images, onSelect, onClose }: Props) => {
                         </div>
                     ))}
                 </div>
+
+                {totalPages > 1 && (
+                    <div className="flex justify-between items-center mt-4 pt-3 border-t">
+                        <button
+                            onClick={() => setCurrentPage(p => p - 1)}
+                            disabled={currentPage === 1}
+                            className="px-3 py-1 border rounded text-sm disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-50"
+                        >
+                            Previous
+                        </button>
+                        <span className="text-sm text-gray-600">
+                            {currentPage} / {totalPages}
+                        </span>
+                        <button
+                            onClick={() => setCurrentPage(p => p + 1)}
+                            disabled={currentPage === totalPages}
+                            className="px-3 py-1 border rounded text-sm disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-50"
+                        >
+                            Next
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );
