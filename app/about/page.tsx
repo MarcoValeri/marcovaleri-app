@@ -25,19 +25,19 @@ const AboutPage = () => {
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
                             My name is Marco Valeri. I&apos;m a software engineer by day and a writer 
-                            in the time I carve out from the world.
+                            in the time I carve out of the world.
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
                             I created this space several years ago, when, tired of my routine in Rome, 
-                            I packed my bags for London. A choice that changed my life — not because 
+                            I packed my bags for London. It was a choice that changed my life—not because 
                             it was easy, but because it forced me to start from scratch.
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
                             I arrived here with the illusion that everything worked better abroad. I quickly 
                             discovered that things are neither better nor worse: they are simply, incredibly 
-                            different. The first years were a school of humility. To make a living I worked 
+                            different. The first few years were a school of humility. To make a living, I worked 
                             as a dishwasher in kitchens where chaos reigned, but where I learned the most 
                             important lesson: it&apos;s never too late to become who you want to be.
                         </p>
@@ -45,8 +45,8 @@ const AboutPage = () => {
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
                             At 33, while working full-time, I decided to pick up the books again. I enrolled 
                             at Birkbeck, University of London, chasing two seemingly opposite passions: 
-                            the logic of computer science and the freedom of writing. At 37 I graduated in 
-                            Computer Science and today I work as a Software Engineer in this city that never 
+                            the logic of computer science and the freedom of writing. At 37, I graduated in 
+                            Computer Science, and today I work as a Software Engineer in this city that never 
                             stops running.
                         </p>
                         
@@ -55,14 +55,14 @@ const AboutPage = () => {
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
-                            Today I use this blog and my newsletter to write about life in London, the challenges 
+                            Today, I use this blog and my newsletter to write about life in London, the challenges 
                             of changing career paths as an adult, and my journey towards publishing my first 
                             novel. I firmly believe there is a &quot;third way&quot; between duty and dreams, and 
                             that&apos;s what I try to explore every day.
                         </p>
                         
                         <p className="text-lg text-black opacity-90 leading-relaxed mb-6">
-                            If you find yourself in these words, you&apos;re in the right place. I invite you to{' '}
+                            If you see yourself in these words, you&apos;re in the right place. I invite you to{' '}
                             <a 
                                 href="https://mailchi.mp/marcovaleri/marco-valeri-newsletter"
                                 target="_blank"
