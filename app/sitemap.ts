@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date().toISOString(),
     },
     {
-      url: `${baseUrl}/chi-sono`,
+      url: `${baseUrl}/about`,
       lastModified: new Date().toISOString(),
     },
     {

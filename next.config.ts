@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: '/articles/:slug',
         permanent: true,
       },
+      {
+        source: '/chi-sono',
+        destination: '/about',
+        permanent: true,
+      },
     ];
   },
 };
