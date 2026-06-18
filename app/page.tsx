@@ -9,7 +9,7 @@ import LinlButtonBlack from "./components/LinkButtonBlack/LinkButtonBlack";
 
 export const metadata: Metadata = {
     title: "Marco Valeri - Home",
-    description: "Scopri le mie esperienze, i miei viaggi e le mie storie. Articoli sui miei viaggi e la vita quotidiana.",
+    description: "Discover my experiences, travels and stories. Articles about my journeys and everyday life.",
 };
 
 const Home = async () => {
@@ -51,7 +51,7 @@ const Home = async () => {
                     )}
                     {latestArticles.length === 0 && (
                         <p className="text-center text-black opacity-60 py-12">
-                            Nessun articolo disponibile al momento.
+                            No articles available at the moment.
                         </p>
                     )}
                 </div>
