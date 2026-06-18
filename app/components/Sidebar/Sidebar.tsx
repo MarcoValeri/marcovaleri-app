@@ -9,7 +9,7 @@ const Sidebar = () => {
             {/* Follow Me Section */}
             <div className="bg-white rounded-lg p-6 shadow-lg border border-black border-opacity-10">
                 <h3 className="text-2xl font-bold text-black mb-6">
-                    Seguimi su:
+                    Follow me:
                 </h3>
                 
                 <div className="flex gap-4">
@@ -67,15 +67,15 @@ const Sidebar = () => {
             {/* Newsletter Section */}
             <div className="bg-black rounded-lg p-6 shadow-lg">
                 <h3 className="text-2xl font-bold text-white mb-3">
-                    Iscriviti alla mia newsletter
+                    Subscribe to my newsletter
                 </h3>
                 <p className="font-['Inter'] text-white mb-6">
-                    Restiamo in contatto, iscriviti ora alla mia newsletter per leggere gli ultimi articoli ed i contenuti esclusivi
+                    Let&apos;s stay in touch — subscribe now to read my latest articles and exclusive content
                 </p>
                 <LinkButtonYellow
                     externalLink={true}
                     link="https://mailchi.mp/marcovaleri/marco-valeri-newsletter"
-                    content="Iscriviti"
+                    content="Subscribe"
                 />
             </div>
         </div>

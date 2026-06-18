@@ -75,12 +75,12 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
         {/* Newsletter Banner */}
         <div className="my-16 bg-black text-white rounded-lg p-8 lg:p-12">
           <h3 className="text-3xl lg:text-4xl font-bold mb-4">
-            Restiamo in contatto
+            Let&apos;s stay in touch
           </h3>
           <p className="text-lg leading-relaxed mb-6 opacity-90">
-            Ti è piaciuto questo articolo? Iscriviti alla mia newsletter per non perderti 
-            le prossime riflessioni. È uno spazio tranquillo, lontano dal rumore dei social, 
-            dove rispondo personalmente a ogni email.
+            Did you enjoy this article? Subscribe to my newsletter so you don&apos;t miss 
+            the next reflections. It&apos;s a quiet space, away from the noise of social media, 
+            where I personally reply to every email.
           </p>
           <a
             href="https://mailchi.mp/marcovaleri/marco-valeri-newsletter"
@@ -88,7 +88,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
             rel="noopener noreferrer"
             className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-white transition-all duration-300"
           >
-            Iscriviti alla Newsletter
+            Subscribe to the Newsletter
           </a>
         </div>
 
@@ -113,7 +113,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
       {relatedArticles.length > 0 && (
         <div className="max-w-7xl mx-auto mt-20">
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-12">
-            Ti potrebbe interessare
+            You might also like
           </h2>
           <div className="flex flex-wrap gap-8">
             {relatedArticles.map((relatedArticle) => (
@@ -123,7 +123,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
                 description={relatedArticle.description || ''}
                 category={relatedArticle.category?.category}
                 imageUrl={relatedArticle.featuredImage?.url}
-                articleUrl={`/articoli/${relatedArticle.url}`}
+                articleUrl={`/articles/${relatedArticle.url}`}
                 className="w-full md:w-[calc(50%-1rem)]"
               />
             ))}

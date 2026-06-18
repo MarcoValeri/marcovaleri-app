@@ -38,7 +38,7 @@ const ArticleListWithFilter = ({ articles }: ArticleListWithFilterProps) => {
                 : 'bg-gray-100 text-black hover:bg-gray-200'
             }`}
           >
-            Tutti
+            All
           </button>
           {categories.map(category => (
             <button

@@ -71,11 +71,11 @@ describe('ArticleListWithFilter', () => {
       expect(articleCards).toHaveLength(5);
     });
 
-    it('should render the "Tutti" button', () => {
+    it('should render the "All" button', () => {
       const articles = createMockArticles();
       render(<ArticleListWithFilter articles={articles} />);
 
-      expect(screen.getByText('Tutti')).toBeInTheDocument();
+      expect(screen.getByText('All')).toBeInTheDocument();
     });
 
     it('should render a button for each unique category', () => {
@@ -103,22 +103,22 @@ describe('ArticleListWithFilter', () => {
       ];
       render(<ArticleListWithFilter articles={articles} />);
 
-      expect(screen.queryByText('Tutti')).not.toBeInTheDocument();
+      expect(screen.queryByText('All')).not.toBeInTheDocument();
     });
 
     it('should not render filter buttons when articles array is empty', () => {
       render(<ArticleListWithFilter articles={[]} />);
 
-      expect(screen.queryByText('Tutti')).not.toBeInTheDocument();
+      expect(screen.queryByText('All')).not.toBeInTheDocument();
     });
   });
 
   describe('Filtering', () => {
-    it('should show "Tutti" as active by default', () => {
+    it('should show "All" as active by default', () => {
       const articles = createMockArticles();
       render(<ArticleListWithFilter articles={articles} />);
 
-      const tuttiButton = screen.getByText('Tutti');
+      const tuttiButton = screen.getByText('All');
       expect(tuttiButton).toHaveClass('bg-black', 'text-white');
     });
 
@@ -135,7 +135,7 @@ describe('ArticleListWithFilter', () => {
       expect(screen.getByText('TypeScript Tips')).toBeInTheDocument();
     });
 
-    it('should show all articles when clicking "Tutti"', () => {
+    it('should show all articles when clicking "All"', () => {
       const articles = createMockArticles();
       render(<ArticleListWithFilter articles={articles} />);
 
@@ -144,8 +144,8 @@ describe('ArticleListWithFilter', () => {
       fireEvent.click(techButton);
       expect(screen.getAllByTestId('article-card')).toHaveLength(2);
 
-      // Then click Tutti
-      const tuttiButton = screen.getByText('Tutti');
+      // Then click All
+      const tuttiButton = screen.getByText('All');
       fireEvent.click(tuttiButton);
       expect(screen.getAllByTestId('article-card')).toHaveLength(5);
     });
@@ -160,8 +160,8 @@ describe('ArticleListWithFilter', () => {
       // Tech button should be active
       expect(techButton).toHaveClass('bg-black', 'text-white');
 
-      // Tutti button should be inactive
-      const tuttiButton = screen.getByText('Tutti');
+      // All button should be inactive
+      const tuttiButton = screen.getByText('All');
       expect(tuttiButton).toHaveClass('bg-gray-100');
     });
 
@@ -226,7 +226,7 @@ describe('ArticleListWithFilter', () => {
       render(<ArticleListWithFilter articles={articles} />);
 
       // Should show filter buttons since at least one article has a category
-      expect(screen.getByText('Tutti')).toBeInTheDocument();
+      expect(screen.getByText('All')).toBeInTheDocument();
       expect(screen.getByText('Tech')).toBeInTheDocument();
 
       // All articles shown by default
@@ -270,7 +270,7 @@ describe('ArticleListWithFilter', () => {
       ];
       render(<ArticleListWithFilter articles={articles} />);
 
-      expect(screen.getByText('Tutti')).toBeInTheDocument();
+      expect(screen.getByText('All')).toBeInTheDocument();
       expect(screen.getByText('Solo Category')).toBeInTheDocument();
       expect(screen.getAllByTestId('article-card')).toHaveLength(1);
     });

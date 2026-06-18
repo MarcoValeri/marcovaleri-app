@@ -34,7 +34,7 @@ const ArticleList = ({ articles, itemsPerPage = 9 }: ArticleListProps) => {
             description={article.description || ''}
             category={article.category?.category}
             imageUrl={article.featuredImage?.url}
-            articleUrl={`/articoli/${article.url}`}
+            articleUrl={`/articles/${article.url}`}
             className="w-full xl:w-[calc(50%-1rem)] 2xl:w-[calc(33.333%-1.34rem)]"
           />
         ))}
