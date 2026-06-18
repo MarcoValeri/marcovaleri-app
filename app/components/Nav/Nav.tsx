@@ -19,7 +19,7 @@ const Nav = () => {
                 <li><Link href="/" className="nav-link">Home</Link></li>
                 <li><Link href="/articles" className="nav-link">Articles</Link></li>
                 <li><Link href="/about" className="nav-link">About</Link></li>
-                <li><Link href="/contatti" className="nav-link">Contatti</Link></li>
+                <li><Link href="/contact" className="nav-link">Contact</Link></li>
                 <li><a href="https://mailchi.mp/marcovaleri/marco-valeri-newsletter" target="_blank" className="nav-link">Newsletter</a></li>
             </ul>
             <div className="md:hidden block z-20">
@@ -43,7 +43,7 @@ const Nav = () => {
                     <li><Link href="/" onClick={handleShowMobileMenu}><span className="text-2xl">Home</span></Link></li>
                     <li><Link href="/articles" onClick={handleShowMobileMenu}><span className="text-2xl">Articles</span></Link></li>
                     <li><Link href="/about" onClick={handleShowMobileMenu}><span className="text-2xl">About</span></Link></li>
-                    <li><Link href="/contatti" onClick={handleShowMobileMenu}><span className="text-2xl">Contatti</span></Link></li>
+                    <li><Link href="/contact" onClick={handleShowMobileMenu}><span className="text-2xl">Contact</span></Link></li>
                     <li><a href="https://mailchi.mp/marcovaleri/marco-valeri-newsletter" target="_blank" onClick={handleShowMobileMenu}><span className="text-2xl">Newsletter</span></a></li>
                 </ul>
             </div>
