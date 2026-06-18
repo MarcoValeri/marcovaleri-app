@@ -7,8 +7,8 @@ import ArticleListWithFilter from "../components/ArticleListWithFilter/ArticleLi
 import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = {
-    title: "Articoli - Marco Valeri",
-    description: "Tutti gli articoli di Marco Valeri. Scopri le mie esperienze, i miei viaggi e le mie storie.",
+    title: "Articles - Marco Valeri",
+    description: "All articles by Marco Valeri. Discover my experiences, travels and stories.",
 };
 
 const ArticlesPage = async () => {
@@ -23,8 +23,8 @@ const ArticlesPage = async () => {
         <div className="px-8 lg:px-10 py-12 lg:py-20">
             {/* Page Title */}
             <div className="mb-12">
-              <h1 className="text-5xl lg:text-6xl font-bold text-black mb-4">Articoli</h1>
-              <p className="text-xl text-black opacity-70">Scopri le mie esperienze, i miei viaggi, le mie storie</p>
+              <h1 className="text-5xl lg:text-6xl font-bold text-black mb-4">Articles</h1>
+              <p className="text-xl text-black opacity-70">Discover my experiences, travels and stories</p>
             </div>
 
             {/* Articles List with Category Filter and Pagination */}

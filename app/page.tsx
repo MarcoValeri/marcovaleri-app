@@ -26,7 +26,7 @@ const Home = async () => {
             <Header />
             <MainLayout>
                 <div>
-                    <h2 className="text-4xl font-bold text-black mb-8">Ultimi articoli</h2>
+                    <h2 className="text-4xl font-bold text-black mb-8">Latest articles</h2>
                     <div className="flex flex-wrap gap-8 mb-12">
                         {latestArticles.map((article) => (
                             <ArticleCard
