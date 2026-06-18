@@ -123,7 +123,7 @@ const ArticleTemplate = ({ article, relatedArticles = [] }: ArticleTemplateProps
                 description={relatedArticle.description || ''}
                 category={relatedArticle.category?.category}
                 imageUrl={relatedArticle.featuredImage?.url}
-                articleUrl={`/articoli/${relatedArticle.url}`}
+                articleUrl={`/articles/${relatedArticle.url}`}
                 className="w-full md:w-[calc(50%-1rem)]"
               />
             ))}

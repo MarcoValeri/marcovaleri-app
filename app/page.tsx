@@ -35,7 +35,7 @@ const Home = async () => {
                                 description={article.description || ''}
                                 category={article.category?.category}
                                 imageUrl={article.featuredImage?.url}
-                                articleUrl={`/articoli/${article.url}`}
+                                articleUrl={`/articles/${article.url}`}
                                 className="w-full md:w-[calc(50%-1rem)]"
                             />
                         ))}
@@ -44,7 +44,7 @@ const Home = async () => {
                         <div className="text-center">
                             <LinlButtonBlack
                                 externalLink={false}
-                                link="/articoli"
+                                link="/articles"
                                 content="View all articles"
                             />
                         </div>
