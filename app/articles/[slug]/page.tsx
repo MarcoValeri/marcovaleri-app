@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: SingleArticleProps): Promise<
     title: `${article.title} - Marco Valeri`,
     description: article.description || `Read ${article.title} by Marco Valeri`,
     alternates: {
-      canonical: `/articoli/${slug}`,
+      canonical: `/articles/${slug}`,
     },
   };
 }

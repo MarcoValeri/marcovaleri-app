@@ -27,7 +27,7 @@ const isDevEnv = currentEnv === "dev";
 
 export const metadata: Metadata = {
     title: "Marco Valeri",
-    description: "Scopri le mie esperienze, i miei viaggi e le mie storie. Articoli sui miei viaggi e la vita quotidiana",
+    description: "Discover my experiences, travels and stories. Articles about my journeys and everyday life",
     icons: {
         icon: "/images/marco-valeri-net-logo.jpg"
     },

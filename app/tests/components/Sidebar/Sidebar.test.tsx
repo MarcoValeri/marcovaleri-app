@@ -27,17 +27,17 @@ describe('Sidebar', () => {
   describe('Rendering', () => {
     it('should render social media section heading', () => {
       render(<Sidebar />);
-      expect(screen.getByText('Seguimi su:')).toBeInTheDocument();
+      expect(screen.getByText('Follow me:')).toBeInTheDocument();
     });
 
     it('should render newsletter section heading', () => {
       render(<Sidebar />);
-      expect(screen.getByText('Iscriviti alla mia newsletter')).toBeInTheDocument();
+      expect(screen.getByText('Subscribe to my newsletter')).toBeInTheDocument();
     });
 
     it('should render newsletter description', () => {
       render(<Sidebar />);
-      expect(screen.getByText(/Restiamo in contatto/i)).toBeInTheDocument();
+      expect(screen.getByText(/stay in touch/i)).toBeInTheDocument();
     });
 
     it('should render Instagram icon', () => {
@@ -63,7 +63,7 @@ describe('Sidebar', () => {
     it('should render newsletter button', () => {
       render(<Sidebar />);
       expect(screen.getByTestId('newsletter-button')).toBeInTheDocument();
-      expect(screen.getByText('Iscriviti')).toBeInTheDocument();
+      expect(screen.getByText('Subscribe')).toBeInTheDocument();
     });
   });
 
